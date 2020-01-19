@@ -1,32 +1,46 @@
-# コンテナ操作
-コンテナ操作に役立ちそうなコマンドを以下に記す
+# Docker 操作
+Docker 操作に役立ちそうなコマンドを以下に記す
 
-## コンテナの作成 & コンテナへの ssh
+## コンテナ操作
+
+### 作成
 ```
-% docker run -it [IMAGE]
+% docker create -it [IMAGE]
 ```
 
-## コンテナの起動
+### 起動
 ```
 % docker start [CONTAINER ID]
 ```
 
-## コンテナへの ssh
+### ssh
 ```
 % docker exec -it [CONTAINER ID] bash
 ```
 
-## コンテナの停止
+### 作成 & 起動 & ssh
+```
+% docker run -it [IMAGE]
+```
+
+### 停止
 ```
 % docker stop [CONTAINER ID]
 ```
 
-## コンテナの全削除
+### 全削除
 ```
 % docker rm `docker ps -a -q`
 ```
 
-## イメージの全削除
+## イメージ操作
+
+### 作成
+```
+% docker build -t [IMAGE(new)] .
+```
+
+### 全削除
 ```
 % docker rmi `docker images -a -q`
 ```
