@@ -43,7 +43,7 @@ $ npm install axios --save
 % docker build --no-cache .
 ```
 
-## コンテナの作成 & 起動 & 接続 (フロントサイド)
+## コンテナの作成 & 起動 & 接続
 ``` sh
 % docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client --network container-network -p 8081:3000 -it [IMAGE] ash
 ```
