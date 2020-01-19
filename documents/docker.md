@@ -20,7 +20,7 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 
 ### 全削除
 ``` sh
-% docker rmi `docker images -a -q`
+% docker rmi `docker images -a`
 ```
 
 ## ネットワーク操作
