@@ -19,54 +19,58 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 ## コンテナ操作
 
 ### 作成
-```
+``` bash
 % docker create -it [IMAGE]
 ```
 
 ### 起動
-```
+``` bash
 % docker start [CONTAINER ID]
 ```
 
 ### 接続
-```
+``` bash
 % docker exec -it [CONTAINER ID] bash
 ```
 
 ### 作成 & 起動 & 接続
-```
+``` bash
 % docker run -it [IMAGE]
 ```
 
 ### 作成 & 起動 & 接続 & マウント
+#### usage
 ``` bash:usage
 % docker run -it -v [ホストディレクトリの絶対パス]:[コンテナの絶対パス] [IMAGE] [command]
 ```
+#### e.g.
 ``` bash:e.g.
 % docker run -it -v /Users/yuki/github.com/muryakami/go-react:/app golang-test bash
 ```
 
 ### 停止
-```
+``` bash
 % docker stop [CONTAINER ID]
 ```
 
 ### 全削除
-```
+``` bash
 % docker rm `docker ps -a -q`
 ```
 
 ## イメージ操作
 
 ### 作成
+#### usage
 ``` bash:usage
 % docker build -t [IMAGE(new)] .
 ```
+#### e.g.
 ``` bash:e.g.
 % docker build -t golang-test .
 ```
 
 ### 全削除
-```
+``` bash
 % docker rmi `docker images -a -q`
 ```
