@@ -39,10 +39,10 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 ```
 
 ### 作成 & 起動 & 接続 & マウント
-``` usage
+``` bash:usage
 % docker run -it -v [ホストディレクトリの絶対パス]:[コンテナの絶対パス] [IMAGE] [command]
 ```
-``` e.g.
+``` bash:e.g.
 % docker run -it -v /Users/yuki/github.com/muryakami/go-react:/app golang-test bash
 ```
 
@@ -59,10 +59,10 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 ## イメージ操作
 
 ### 作成
-``` usage
+``` bash:usage
 % docker build -t [IMAGE(new)] .
 ```
-``` e.g.
+``` bash:e.g.
 % docker build -t golang-test .
 ```
 
