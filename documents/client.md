@@ -48,3 +48,8 @@ $ npm install axios --save
 $ cd client
 $ yarn start
 ```
+
+## HTTP リクエスト
+```
+% curl localhost:8081/
+```
