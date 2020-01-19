@@ -1,6 +1,45 @@
 # Docker 操作
 Docker 操作に役立ちそうなコマンドを以下に記す
 
+## イメージ操作
+
+### 作成
+``` sh
+% docker build -t [IMAGE(new)] .
+```
+
+### 確認
+``` sh
+% docker images
+```
+
+### 削除
+``` sh
+% docker rmi [CONTAINER ID]
+```
+
+### 全削除
+``` sh
+% docker rmi `docker images -a -q`
+```
+
+## ネットワーク操作
+
+### 作成
+``` sh
+% docker network create [NAME(new)]
+```
+
+### 確認
+``` sh
+% docker network ls
+```
+
+### 削除
+``` sh
+% docker network rm [NAME]
+```
+
 ## コンテナ操作
 
 ### 作成
@@ -33,9 +72,14 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 % docker run -p [ホストディレクトリのポート番号]:[コンテナのポート番号] [IMAGE] [command]
 ```
 
-### e.g.
+### ネットワーク指定
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react:/app -p 8080:3000 -it golang-sample bash
+% docker run --network [NAME] [IMAGE] [command]
+```
+
+### 確認
+``` sh
+% docker ps
 ```
 
 ### 停止
@@ -43,24 +87,12 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 % docker stop [CONTAINER ID]
 ```
 
-### 全削除
+### 削除
 ``` sh
-% docker rm `docker ps -a -q`
-```
-
-## イメージ操作
-
-### 作成
-#### usage
-``` sh:usage
-% docker build -t [IMAGE(new)] .
-```
-#### e.g.
-``` sh:e.g.
-% docker build -t golang-sample .
+% docker rm [CONTAINER ID]
 ```
 
 ### 全削除
 ``` sh
-% docker rmi `docker images -a -q`
+% docker rm `docker ps -a -q`
 ```
