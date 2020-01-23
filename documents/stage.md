@@ -26,6 +26,11 @@
 $ go run main.go
 ```
 
+## HTTP リクエスト
+```
+% curl localhost:5050/api/ping
+```
+
 ## クライアントサイド
 ### コンテナの作成 & 起動 & 接続
 ``` sh
@@ -39,5 +44,5 @@ $ yarn start
 
 ## HTTP リクエスト
 ```
-% curl localhost:5050/api/ping
+% curl localhost:5051/
 ```
