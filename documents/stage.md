@@ -23,6 +23,7 @@
 
 ### サーバの起動 (in コンテナ)
 ``` sh
+# in /app/server
 $ go run main.go
 ```
 
@@ -39,6 +40,7 @@ $ go run main.go
 
 ### サーバの起動 (in コンテナ)
 ``` sh
+# in /client
 $ yarn start
 ```
 
