@@ -41,6 +41,6 @@ $ go run main.go
 ```
 
 ## HTTP リクエスト
-```
+``` sh
 % curl localhost:5050/api/ping
 ```

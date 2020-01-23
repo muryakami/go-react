@@ -41,6 +41,6 @@ $ yarn start
 ```
 
 ## HTTP リクエスト
-```
+``` sh
 % curl localhost:5051/
 ```

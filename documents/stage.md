@@ -1,5 +1,10 @@
 # Command History
 
+## ignore ファイルの指定
+``` sh
+% echo '**/node_modules' > .dockerignore
+```
+
 ## イメージの作成
 ``` sh
 % docker build --no-cache .
@@ -28,7 +33,7 @@ $ go run main.go
 ```
 
 ## HTTP リクエスト
-```
+``` sh
 % curl localhost:5050/api/ping
 ```
 
@@ -45,6 +50,23 @@ $ yarn start
 ```
 
 ## HTTP リクエスト
-```
+``` sh
 % curl localhost:5051/
+```
+
+# Usage
+
+## イメージの作成
+``` sh
+% docker build -t golang-heroku .
+```
+
+## コンテナの作成 & 起動 & 接続
+``` sh
+% docker run -p 3000:8080 -d golang-heroku
+```
+
+## HTTP リクエスト
+``` sh
+% curl localhost:3000
 ```
