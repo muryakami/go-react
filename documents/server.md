@@ -2,12 +2,12 @@
 
 ## イメージの作成
 ``` sh
-% docker build -t golang-sample .
+% docker build --no-cache .
 ```
 
 ## コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:9000 -it golang-sample bash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:9000 -it [IMAGE] bash
 ```
 
 ## Initialize Go module (in コンテナ)
@@ -24,12 +24,12 @@ $ go run main.go
 
 ## イメージの作成
 ``` sh
-% docker build -t golang-sample .
+% docker build --no-cache -t golang-server .
 ```
 
 ## コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:9000 -it golang-sample bash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:9000 -it golang-server bash
 ```
 
 ## サーバの起動 (in コンテナ)
