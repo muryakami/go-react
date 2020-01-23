@@ -34,7 +34,6 @@ $ go run main.go
 
 ### サーバの起動 (in コンテナ)
 ``` sh
-$ cd client
 $ yarn start
 ```
 
