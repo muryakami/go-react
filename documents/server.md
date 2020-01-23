@@ -7,7 +7,7 @@
 
 ## コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:9000 -it [IMAGE] bash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 5050:8080 -it [IMAGE] bash
 ```
 
 ## Initialize Go module (in コンテナ)
@@ -29,7 +29,7 @@ $ go run main.go
 
 ## コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:9000 -it golang-server bash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 5050:8080 -it golang-server bash
 ```
 
 ## サーバの起動 (in コンテナ)
@@ -39,5 +39,5 @@ $ go run main.go
 
 ## HTTP リクエスト
 ```
-% curl localhost:8080/api/ping
+% curl localhost:5050/api/ping
 ```

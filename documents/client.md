@@ -7,7 +7,7 @@
 
 ## コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client  -p 8081:9001 -it [IMAGE] ash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client  -p 5051:3000 -it [IMAGE] ash
 ```
 
 ## Create React App (in コンテナ)
@@ -30,7 +30,7 @@ $ npm install axios --save
 
 ## コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client -p 8081:3000 -it react-client ash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client -p 5051:3000 -it react-client ash
 ```
 
 ## サーバの起動 (in コンテナ)
@@ -41,5 +41,5 @@ $ yarn start
 
 ## HTTP リクエスト
 ```
-% curl localhost:8081/
+% curl localhost:5051/
 ```
