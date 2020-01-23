@@ -7,7 +7,7 @@
 
 ## ネットワークの作成
 ``` sh
-% docker network create container-network
+% docker network create go-react
 ```
 
 ## イメージの確認
@@ -18,12 +18,12 @@
 ## サーバサイド
 ### コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server --network container-network -p 5050:8080 -it [IMAGE] bash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server --net=go-react -p 5050:8080 -it [IMAGE] bash
 ```
 
 ### サーバの起動 (in コンテナ)
 ``` sh
-# in /app/server
+# From the /app/server directory
 $ go run main.go
 ```
 
@@ -35,12 +35,12 @@ $ go run main.go
 ## クライアントサイド
 ### コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client --network container-network -p 5051:3000 -it [IMAGE] ash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client --net=go-react -p 5051:3000 -it [IMAGE] ash
 ```
 
 ### サーバの起動 (in コンテナ)
 ``` sh
-# in /client
+# From the /client directory
 $ yarn start
 ```
 
