@@ -17,7 +17,7 @@
 
 ## Push it to the Heroku remote
 ``` sh
-% git push heroku master
+% git push heroku heroku-staging:master --force
 ```
 
 ## If you need to retrieve your prod url etc
