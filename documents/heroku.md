@@ -16,7 +16,13 @@
 ```
 
 ## Push it to the Heroku remote
+``` sh
 % git push heroku master
+```
+
+## If you need to retrieve your prod url etc
+``` sh
+% heroku apps:info
 ```
 
 # Usage
