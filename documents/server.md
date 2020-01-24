@@ -12,13 +12,13 @@
 
 ## Initialize Go module (in コンテナ)
 ``` sh
-# in /app/server
+# From the /app/server directory
 $ go mod init github.com/muryakami/react-go
 ```
 
 ## サーバの起動 (in コンテナ)
 ``` sh
-# in /app/server
+# From the /app/server directory
 $ go run main.go
 ```
 
@@ -36,11 +36,11 @@ $ go run main.go
 
 ## サーバの起動 (in コンテナ)
 ``` sh
-# in /app/server
+# From the /app/server directory
 $ go run main.go
 ```
 
 ## HTTP リクエスト
-```
+``` sh
 % curl localhost:5050/api/ping
 ```

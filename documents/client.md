@@ -12,13 +12,13 @@
 
 ## Create React App (in コンテナ)
 ``` sh
-# in /
+# From the / directory
 $ npx create-react-app client
 ```
 
 ## Import axios package (in コンテナ)
 ``` sh
-# in /client
+# From the /client directory
 $ npm install axios --save
 ```
 
@@ -36,11 +36,11 @@ $ npm install axios --save
 
 ## サーバの起動 (in コンテナ)
 ``` sh
-# in /client
+# From the /client directory
 $ yarn start
 ```
 
 ## HTTP リクエスト
-```
+``` sh
 % curl localhost:5051/
 ```
