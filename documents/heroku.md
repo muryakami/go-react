@@ -15,7 +15,7 @@
 % heroku stack:set container
 ```
 
-## Push it to the heroku remote
+## Push it to the Heroku remote
 % git push heroku master
 ```
 
