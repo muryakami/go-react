@@ -2,7 +2,6 @@
 FROM golang:latest AS builder
 ADD ./server /app/server
 WORKDIR /app/server
-# EXPOSE 8080
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-w" -a -o /main .
 
@@ -10,7 +9,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-w" -a -o /main .
 FROM node:alpine AS node_builder
 ADD ./client /client
 WORKDIR /client
-# EXPOSE 3000
 RUN npm install
 RUN npm run build
 
