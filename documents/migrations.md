@@ -92,9 +92,9 @@ $ npm start
 
 # Usage
 
-## ネットワークの確認
+## イメージの作成
 ``` sh
-% docker network inspect bridge
+% docker build --no-cashe -t golang-heroku .
 ```
 
 ## Docker image の確認
@@ -113,41 +113,30 @@ $ npm start
 % docker exec -it -u postgres go-postgres psql
 ```
 
-### データベースへの接続
-#### IN
+### データベースの作成
 ``` sql
--- \c will connect to the database we have created
-postgres=# \c gotutorial
-```
-#### OUT
-``` sql
-You are now connected to database "gotutorial" as user "postgres".
-```
-
-### テーブルの確認
-#### IN
-``` sql
-gotutorial=# \dt
-```
-#### OUT
-``` sql
-              List of relations
- Schema |       Name       | Type  |  Owner
---------+------------------+-------+----------
- public | goose_db_version | table | postgres
- public | ping_timestamp   | table | postgres
-(2 rows)
-```
-
-### データベースとの接続解除
-``` sql
-gotutorial=# \q
+-- Create the database using the create command
+postgres=# create database gotutorial;
+-- Exit psql and the container
+postgres=# \q
 ```
 
 ## サーバサイド
 ### コンテナの作成 & 起動 & 接続
 ``` sh
 % docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -v /Users/yuki/github.com/muryakami/go-react/migrations:/app/migrations -p 8080:8080 -it [IMAGE] bash
+```
+
+###  マイグレーションファイルの適用
+``` sh
+# From the /app directory
+$ goose -dir migrations postgres "postgres://postgres:mysecretpassword@172.17.0.2:5432/gotutorial?sslmode=disable" up
+```
+
+※ IP アドレスは以下のコマンドで確認可能
+``` sh
+# データベースサイドのコンテナで実行
+$ hostname -i
 ```
 
 ### サーバの起動
@@ -185,7 +174,44 @@ $ hostname -i
 $ npm start
 ```
 
+## ネットワークの確認
+``` sh
+% docker network inspect bridge
+```
+
+## データベースサイドの確認
+### データベースへの接続
+#### IN
+``` sql
+-- \c will connect to the database we have created
+postgres=# \c gotutorial
+```
+#### OUT
+``` sql
+You are now connected to database "gotutorial" as user "postgres".
+```
+
+### テーブルの確認
+#### IN
+``` sql
+gotutorial=# \dt
+```
+#### OUT
+``` sql
+              List of relations
+ Schema |       Name       | Type  |  Owner
+--------+------------------+-------+----------
+ public | goose_db_version | table | postgres
+ public | ping_timestamp   | table | postgres
+(2 rows)
+```
+
+### データベースとの接続解除
+``` sql
+gotutorial=# \q
+```
+
 ## HTTP リクエスト
 ``` sh
-% open localhost:3000
+% open http://localhost:3000/
 ```
