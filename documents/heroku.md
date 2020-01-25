@@ -15,6 +15,11 @@
 % heroku stack:set container
 ```
 
+## Heroku アプリケーションのリネーム (必要な場合)
+``` sh
+% heroku apps:rename [newname]
+```
+
 ## リモートリポジトリの確認
 ``` sh
 % git remote -v
@@ -26,11 +31,6 @@
 % git remote add origin git@github.com:muryakami/go-react.git
 # Heroku 側
 % git remote add heroku https://git.heroku.com/quiet-plains-41776.git
-```
-
-## Heroku アプリケーションのリネーム (必要な場合)
-``` sh
-% heroku apps:rename [newname]
 ```
 
 ## Heroku へのデプロイ
