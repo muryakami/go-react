@@ -28,7 +28,7 @@ postgres=# \q
 ## サーバサイド
 ### マイグレーションディレクトリの作成
 ``` sh
-# From the root directory of our project
+# From the root directory
 % mkdir migrations
 ```
 

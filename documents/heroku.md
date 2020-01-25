@@ -2,17 +2,26 @@
 
 ## Heroku へのログイン
 ``` sh
+# From the root directory
 % heroku login
 ```
 
 ## Heroku アプリケーションの作成
 ``` sh
+# From the root directory
 % heroku create
 ```
 
 ## Heroku デプロイ情報の設定 (コンテナデプロイ)
 ``` sh
+# From the root directory
 % heroku stack:set container
+```
+
+## Heroku addon の設定 (postgresql)
+``` sh
+# From the root directory
+$ heroku addons:create heroku-postgresql:hobby-dev
 ```
 
 ## Heroku アプリケーションのリネーム (必要な場合)
@@ -33,6 +42,12 @@
 % git remote add heroku https://git.heroku.com/quiet-plains-41776.git
 ```
 
+## migrate.sh の権限変更
+``` sh
+# From the /server directory
+% chmod +x migrate.sh
+```
+
 ## Heroku へのデプロイ
 ### master ブランチの場合
 ``` sh
@@ -46,6 +61,16 @@
 ## Heroku アプリケーション情報の確認
 ``` sh
 % heroku apps:info
+```
+
+## Heroku addon 情報の確認
+``` sh
+% heroku addons
+```
+
+## Heroku アプリケーション log の確認
+``` sh
+% heroku logs --tail
 ```
 
 ## デプロイ結果の確認
@@ -63,6 +88,16 @@
 ## Heroku アプリケーション情報の確認
 ``` sh
 % heroku apps:info
+```
+
+## Heroku addon 情報の確認
+``` sh
+% heroku addons
+```
+
+## Heroku アプリケーション log の確認
+``` sh
+% heroku logs --tail
 ```
 
 ## デプロイ結果の確認
