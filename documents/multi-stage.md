@@ -10,9 +10,9 @@
 % docker build --no-cache .
 ```
 
-## ネットワークの作成
+## ネットワークの確認
 ``` sh
-% docker network create go-react
+% docker network inspect bridge
 ```
 
 ## イメージの確認
@@ -23,7 +23,7 @@
 ## サーバサイド
 ### コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server --net=go-react -p 5050:8080 -it [IMAGE] bash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -p 8080:8080 -it [IMAGE] bash
 ```
 
 ### サーバの起動 (in コンテナ)
@@ -34,27 +34,43 @@ $ go run main.go
 
 ## HTTP リクエスト
 ``` sh
-% curl localhost:5050/api/ping
+% curl localhost:8080/api/ping
 ```
 
 ## クライアントサイド
 ### コンテナの作成 & 起動 & 接続
 ``` sh
-% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client --net=go-react -p 5051:3000 -it [IMAGE] ash
+% docker run -v /Users/yuki/github.com/muryakami/go-react/client:/client -p 3000:3000 -it [IMAGE] ash
+```
+
+### package.json の proxy を変更
+``` json
+"proxy": "http://172.17.0.3:8080"
+```
+
+※ IP アドレスは以下のコマンドで確認可能
+``` sh
+# サーバサイドのコンテナで実行
+$ hostname -i
 ```
 
 ### サーバの起動 (in コンテナ)
 ``` sh
 # From the /client directory
-$ yarn start
+$ npm start
 ```
 
 ## HTTP リクエスト
 ``` sh
-% curl localhost:5051/
+% curl localhost:3000/
 ```
 
 # Usage
+
+### package.json の proxy を変更
+``` json
+"proxy": "http://localhost:8080"
+```
 
 ## イメージの作成
 ``` sh
