@@ -1,8 +1,10 @@
 # Build the Go API
 FROM golang:latest AS builder
 ADD ./server /app/server
+ADD ./migrations /app/migrations
 WORKDIR /app/server
 RUN go mod download
+RUN go get -u github.com/pressly/goose/cmd/goose
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-w" -a -o /main .
 
 # Build the React application

@@ -35,6 +35,11 @@ Docker 操作に役立ちそうなコマンドを以下に記す
 % docker network ls
 ```
 
+### 詳細
+```
+# docker network inspect [NAME]
+```
+
 ### 削除
 ``` sh
 % docker network rm [NAME]

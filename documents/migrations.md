@@ -1,0 +1,134 @@
+# Command History
+
+## ネットワークの確認
+``` sh
+% docker network inspect bridge
+```
+
+## データベースサイド
+### コンテナの作成 & 起動
+``` sh
+% docker run -p 5432:5432 --name go-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
+
+### コンテナへの接続
+``` sh
+# Log into the container using the postgres user and start psql
+% docker exec -it -u postgres go-postgres psql
+```
+
+### データベースの作成
+``` sql
+-- Create the database using the create command
+postgres=# create database gotutorial;
+-- Exit psql and the container
+postgres=# \q
+```
+
+## サーバサイド
+### マイグレーションディレクトリの作成
+``` sh
+# From the root directory of our project
+% mkdir migrations
+```
+
+### コンテナの作成 & 起動 & 接続
+``` sh
+% docker run -v /Users/yuki/github.com/muryakami/go-react/server:/app/server -v /Users/yuki/github.com/muryakami/go-react/migrations:/app/migrations -it [IMAGE] bash
+```
+
+### マイグレーションファイルの作成
+``` sh
+# From the /app directory
+$ goose -dir migrations create initial_seed sql
+```
+
+###  マイグレーションファイルの適用
+``` sh
+# From the /app directory
+$ goose -dir migrations postgres "postgres://postgres:mysecretpassword@172.17.0.2:5432/gotutorial?sslmode=disable" up
+```
+
+※ IP アドレスの設定は以下のコマンドで確認可能
+``` sh
+% docker network inspect bridge
+```
+
+## 実行結果の確認
+### コンテナへの接続
+``` sh
+% docker exec -it -u postgres go-postgres psql
+```
+
+### データベースへの接続
+#### IN
+``` sql
+-- \c will connect to the database we have created
+postgres=# \c gotutorial
+```
+#### OUT
+``` sql
+You are now connected to database "gotutorial" as user "postgres".
+```
+
+### テーブルの確認
+#### IN
+``` sql
+gotutorial=# \dt
+```
+#### OUT
+``` sql
+              List of relations
+ Schema |       Name       | Type  |  Owner
+--------+------------------+-------+----------
+ public | goose_db_version | table | postgres
+ public | ping_timestamp   | table | postgres
+(2 rows)
+```
+
+### データベースとの接続解除
+``` sql
+gotutorial=# \q
+```
+
+# Usage
+
+## コンテナの作成 & 起動
+``` sh
+% docker run -p 5432:5432 --name go-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
+
+## コンテナへの接続
+``` sh
+% docker exec -it -u postgres go-postgres psql
+```
+
+## データベースへの接続
+### IN
+``` sql
+postgres=# \c gotutorial
+```
+### OUT
+``` sql
+You are now connected to database "gotutorial" as user "postgres".
+```
+
+## テーブルの確認
+### IN
+``` sql
+gotutorial=# \dt
+```
+### OUT
+``` sql
+              List of relations
+ Schema |       Name       | Type  |  Owner
+--------+------------------+-------+----------
+ public | goose_db_version | table | postgres
+ public | ping_timestamp   | table | postgres
+(2 rows)
+```
+
+## データベースとの接続解除
+``` sql
+gotutorial=# \q
+```
