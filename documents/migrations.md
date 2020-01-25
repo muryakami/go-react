@@ -84,7 +84,7 @@ $ hostname -i
 $ hostname -i
 ```
 
-### サーバの起動 (in コンテナ)
+### サーバの起動
 ``` sh
 # From the /client directory
 $ npm start
@@ -179,7 +179,7 @@ $ hostname -i
 $ hostname -i
 ```
 
-### サーバの起動 (in コンテナ)
+### サーバの起動
 ``` sh
 # From the /client directory
 $ npm start
