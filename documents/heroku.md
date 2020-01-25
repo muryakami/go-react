@@ -23,7 +23,7 @@
 ## リポートリポジトリの追加 (必要な場合)
 ``` sh
 # GitHub 側
-% git remote add origin	git@github.com:muryakami/go-react.git
+% git remote add origin git@github.com:muryakami/go-react.git
 # Heroku 側
 % git remote add heroku https://git.heroku.com/quiet-plains-41776.git
 ```
