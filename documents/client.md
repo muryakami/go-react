@@ -37,7 +37,7 @@ $ npm install axios --save
 ## サーバの起動 (in コンテナ)
 ``` sh
 # From the /client directory
-$ yarn start
+$ npm start
 ```
 
 ## HTTP リクエスト
